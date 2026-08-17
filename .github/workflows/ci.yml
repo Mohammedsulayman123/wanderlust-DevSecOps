@@ -17,11 +17,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Show repository files
-        run: ls -la
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Show Node version
-        run: node --version
+      - name: Install backend dependencies
+        working-directory: ./backend
+        run: npm install
 
-      - name: Show npm version
-        run: npm --version
+      - name: Run backend tests
+        working-directory: ./backend
+        run: npm test
+
+      - name: Check code formatting
+        working-directory: ./backend
+        run: npm run check
