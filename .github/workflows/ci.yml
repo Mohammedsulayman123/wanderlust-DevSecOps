@@ -10,7 +10,13 @@ on:
       - main
 
 jobs:
+
+  # =========================
+  # TEST
+  # =========================
+
   test:
+    name: Backend Tests
     runs-on: ubuntu-latest
 
     services:
@@ -31,10 +37,107 @@ jobs:
         with:
           node-version: 24
 
-      - name: Install backend dependencies
+      - name: Install dependencies
         working-directory: ./backend
         run: npm install
 
-      - name: Run backend tests
+      - name: Run tests
         working-directory: ./backend
         run: npm test
+
+
+  # =========================
+  # CODE QUALITY
+  # =========================
+
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: npm install
+
+      - name: Prettier Check
+        working-directory: ./backend
+        run: npm run check
+
+
+  # =========================
+  # DOCKER BUILD
+  # =========================
+
+  docker-build:
+    name: Build Docker Images
+    runs-on: ubuntu-latest
+    needs: [test, code-quality]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Backend Image
+        run: |
+          docker build \
+            -t wanderlust-backend:${{ github.sha }} \
+            ./backend
+
+      - name: Build Frontend Image
+        run: |
+          docker build \
+            -t wanderlust-frontend:${{ github.sha }} \
+            ./frontend
+
+
+  # =========================
+  # TRIVY SECURITY SCAN
+  # =========================
+
+  security-scan:
+    name: Trivy Security Scan
+    runs-on: ubuntu-latest
+    needs: docker-build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Backend Image
+        run: |
+          docker build \
+            -t wanderlust-backend:${{ github.sha }} \
+            ./backend
+
+      - name: Build Frontend Image
+        run: |
+          docker build \
+            -t wanderlust-frontend:${{ github.sha }} \
+            ./frontend
+
+      - name: Scan Backend
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: wanderlust-backend:${{ github.sha }}
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
+
+      - name: Scan Frontend
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: wanderlust-frontend:${{ github.sha }}
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
