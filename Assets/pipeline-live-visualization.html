@@ -7,7 +7,7 @@
   <style>
     :root {
       --bg: #090d16;
-      --card-bg: rgba(22, 30, 49, 0.85);
+      --card-bg: rgba(22, 30, 49, 0.9);
       --card-border: #1e293b;
       --primary: #38bdf8;
       --accent: #818cf8;
@@ -38,11 +38,11 @@
 
     .header {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       padding-bottom: 16px;
       border-bottom: 1px solid #1e293b;
     }
@@ -94,7 +94,7 @@
 
     .controls-panel {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       display: flex;
       gap: 12px;
       margin-bottom: 20px;
@@ -129,10 +129,9 @@
       background: #0369a1;
     }
 
-    /* Visualization Canvas Container */
     .pipeline-board {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       background: #0d1322;
       border-radius: 16px;
       border: 1px solid #1e293b;
@@ -144,13 +143,12 @@
     canvas {
       display: block;
       width: 100%;
-      height: 480px;
+      height: 520px;
     }
 
-    /* Stage Detail Modal / Drawer */
     .log-panel {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1240px;
       margin-top: 24px;
       background: #0b0f19;
       border: 1px solid #1e293b;
@@ -205,11 +203,11 @@
     <button class="btn btn-primary" id="btnTrigger">⚡ Simulate Push Event</button>
     <button class="btn" id="btnPause">⏸ Pause Simulation</button>
     <button class="btn" id="btnSpeed">⏩ Speed: 1x</button>
-    <span style="color: #64748b; font-size: 12px; margin-left: auto;">Click on any pipeline node or watch live packet traffic</span>
+    <span style="color: #64748b; font-size: 12px; margin-left: auto;">Click trigger or watch live moving packet traffic</span>
   </div>
 
   <div class="pipeline-board">
-    <canvas id="pipelineCanvas" width="1200" height="480"></canvas>
+    <canvas id="pipelineCanvas" width="1240" height="520"></canvas>
   </div>
 
   <div class="log-panel">
@@ -237,21 +235,21 @@
     let isPaused = false;
     let speed = 1;
 
-    // Node definitions
+    // Node definitions with ample width & height
     const nodes = [
-      { id: 'dev', name: 'Developer', sub: 'git push', x: 80, y: 150, color: '#3b82f6', icon: '💻' },
-      { id: 'git', name: 'GitHub', sub: 'main branch', x: 230, y: 150, color: '#6366f1', icon: '🐙' },
-      { id: 'jenkins', name: 'Jenkins CI', sub: 'Declarative', x: 410, y: 150, color: '#38bdf8', icon: '⚙️' },
-      { id: 'sonar', name: 'SonarQube', sub: 'SAST & Quality', x: 600, y: 95, color: '#a855f7', icon: '🔍' },
-      { id: 'owasp', name: 'OWASP Check', sub: 'SCA / CVEs', x: 600, y: 215, color: '#f59e0b', icon: '🛡️' },
-      { id: 'trivy', name: 'Trivy Scan', sub: 'Vulnerability', x: 790, y: 150, color: '#ec4899', icon: '🔬' },
-      { id: 'docker', name: 'Docker Hub', sub: 'Multi-stage', x: 970, y: 150, color: '#10b981', icon: '🐳' },
+      { id: 'dev', name: 'Developer', sub: 'git push', w: 100, h: 72, x: 88, y: 155, color: '#3b82f6', icon: '💻' },
+      { id: 'git', name: 'GitHub', sub: 'main branch', w: 125, h: 72, x: 272, y: 155, color: '#6366f1', icon: '🐙' },
+      { id: 'jenkins', name: 'Jenkins CI', sub: 'Declarative', w: 135, h: 84, x: 477, y: 155, color: '#38bdf8', icon: '⚙️' },
+      { id: 'sonar', name: 'SonarQube', sub: 'SAST & Quality', w: 155, h: 70, x: 692, y: 105, color: '#a855f7', icon: '🔍' },
+      { id: 'owasp', name: 'OWASP DC', sub: 'SCA / CVEs', w: 155, h: 70, x: 692, y: 215, color: '#f59e0b', icon: '🛡️' },
+      { id: 'trivy', name: 'Trivy Scan', sub: 'Filesystem', w: 135, h: 72, x: 892, y: 155, color: '#ec4899', icon: '🔬' },
+      { id: 'docker', name: 'Docker Hub', sub: 'Multi-stage', w: 150, h: 72, x: 1105, y: 155, color: '#10b981', icon: '🐳' },
       
       // Bottom Row: AWS EC2 Runtime cluster
-      { id: 'front', name: 'React Frontend', sub: 'Port: 5173', x: 900, y: 370, color: '#0ea5e9', icon: '⚛️' },
-      { id: 'back', name: 'Node Backend', sub: 'Port: 31100', x: 650, y: 370, color: '#6366f1', icon: '🟢' },
-      { id: 'redis', name: 'Redis Cache', sub: 'Port: 6379', x: 410, y: 370, color: '#ef4444', icon: '⚡' },
-      { id: 'db', name: 'MongoDB', sub: 'Port: 27017', x: 170, y: 370, color: '#10b981', icon: '🍃' }
+      { id: 'db', name: 'MongoDB 8.0', sub: 'Port: 27017', w: 250, h: 82, x: 190, y: 395, color: '#10b981', icon: '🍃' },
+      { id: 'redis', name: 'Redis Cache', sub: 'Port: 6379', w: 250, h: 82, x: 480, y: 395, color: '#ef4444', icon: '⚡' },
+      { id: 'back', name: 'Express API', sub: 'Port: 31100', w: 250, h: 82, x: 770, y: 395, color: '#6366f1', icon: '🟢' },
+      { id: 'front', name: 'React Frontend', sub: 'Port: 5173', w: 220, h: 82, x: 1045, y: 395, color: '#0ea5e9', icon: '⚛️' }
     ];
 
     // Pipeline connection segments
@@ -270,14 +268,14 @@
       { from: 'back', to: 'db', color: '#10b981' }
     ];
 
-    // Animated particles (Moving dots)
+    // Animated particles
     const particles = [];
     for (let i = 0; i < 35; i++) {
       particles.push({
         segmentIndex: Math.floor(Math.random() * segments.length),
         t: Math.random(),
         speed: (0.003 + Math.random() * 0.004),
-        radius: 3 + Math.random() * 2.5
+        radius: 3.5 + Math.random() * 2
       });
     }
 
@@ -294,7 +292,6 @@
       logStream.scrollTop = logStream.scrollHeight;
     }
 
-    // Animation Loop
     function render() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -305,19 +302,19 @@
       ctx.setLineDash([8, 6]);
       ctx.fillStyle = 'rgba(15, 23, 42, 0.4)';
       ctx.beginPath();
-      ctx.roundRect(40, 290, 1120, 155, 12);
+      ctx.roundRect(40, 310, 1160, 165, 14);
       ctx.stroke();
       ctx.fill();
       ctx.restore();
 
       // EC2 Badge
       ctx.fillStyle = '#0f172a';
-      ctx.fillRect(60, 278, 230, 24);
+      ctx.fillRect(65, 296, 300, 26);
       ctx.strokeStyle = '#38bdf8';
-      ctx.strokeRect(60, 278, 230, 24);
+      ctx.strokeRect(65, 296, 300, 26);
       ctx.fillStyle = '#38bdf8';
       ctx.font = 'bold 11px monospace';
-      ctx.fillText('AWS EC2 • DOCKER COMPOSE RUNTIME', 72, 294);
+      ctx.fillText('AWS EC2 • DOCKER COMPOSE RUNTIME', 78, 313);
 
       // Draw Connections
       segments.forEach(seg => {
@@ -325,7 +322,7 @@
         const n2 = getNode(seg.to);
 
         ctx.strokeStyle = seg.color + '44';
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 2.5;
         ctx.setLineDash([4, 4]);
         ctx.beginPath();
         ctx.moveTo(n1.x, n1.y);
@@ -334,7 +331,7 @@
         ctx.setLineDash([]);
       });
 
-      // Update and Draw Moving Dots (Live Particles)
+      // Update and Draw Moving Dots
       if (!isPaused) {
         particles.forEach(p => {
           p.t += p.speed * speed;
@@ -353,7 +350,6 @@
         const curX = n1.x + (n2.x - n1.x) * p.t;
         const curY = n1.y + (n2.y - n1.y) * p.t;
 
-        // Glowing circle effect
         ctx.save();
         ctx.shadowColor = seg.color;
         ctx.shadowBlur = 12;
@@ -371,45 +367,39 @@
 
       // Draw Nodes
       nodes.forEach(n => {
-        const cardW = 110;
-        const cardH = 68;
-        const startX = n.x - cardW / 2;
-        const startY = n.y - cardH / 2;
+        const startX = n.x - n.w / 2;
+        const startY = n.y - n.h / 2;
 
-        // Card Glow & Background
         ctx.save();
         ctx.shadowColor = n.color;
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 8;
         ctx.fillStyle = '#162032';
         ctx.beginPath();
-        ctx.roundRect(startX, startY, cardW, cardH, 8);
+        ctx.roundRect(startX, startY, n.w, n.h, 8);
         ctx.fill();
         ctx.restore();
 
-        // Border & Top Accent Line
         ctx.strokeStyle = n.color;
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
         ctx.fillStyle = n.color;
-        ctx.fillRect(startX, startY, cardW, 3);
+        ctx.fillRect(startX, startY, n.w, 3);
 
-        // Icon & Texts
         ctx.font = '16px sans-serif';
         ctx.fillText(n.icon, startX + 12, startY + 28);
 
         ctx.fillStyle = '#f8fafc';
         ctx.font = 'bold 12px sans-serif';
-        ctx.fillText(n.name, startX + 34, startY + 26);
+        ctx.fillText(n.name, startX + 36, startY + 26);
 
         ctx.fillStyle = '#94a3b8';
-        ctx.font = '10px monospace';
-        ctx.fillText(n.sub, startX + 12, startY + 48);
+        ctx.font = '11px monospace';
+        ctx.fillText(n.sub, startX + 16, startY + 54);
 
-        // Micro status dot
         ctx.fillStyle = '#10b981';
         ctx.beginPath();
-        ctx.arc(startX + cardW - 14, startY + 16, 3.5, 0, Math.PI * 2);
+        ctx.arc(startX + n.w - 14, startY + 16, 3.5, 0, Math.PI * 2);
         ctx.fill();
       });
 
@@ -418,7 +408,6 @@
 
     render();
 
-    // Controls
     document.getElementById('btnPause').addEventListener('click', function() {
       isPaused = !isPaused;
       this.textContent = isPaused ? '▶ Resume Simulation' : '⏸ Pause Simulation';
@@ -440,4 +429,3 @@
   </script>
 </body>
 </html>
-

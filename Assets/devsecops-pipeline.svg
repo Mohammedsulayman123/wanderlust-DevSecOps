@@ -1,64 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 520" width="100%" height="100%">
   <defs>
     <!-- Background Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0d14"/>
+      <stop offset="0%" stop-color="#080b11"/>
       <stop offset="50%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#07090e"/>
+      <stop offset="100%" stop-color="#06080d"/>
     </linearGradient>
 
-    <!-- Card Gradients -->
+    <!-- Card Background Gradients -->
     <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#1e293b" stop-opacity="0.95"/>
       <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
     </linearGradient>
     <linearGradient id="cardActiveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.85"/>
+      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.9"/>
       <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
     </linearGradient>
 
-    <!-- Accent Neon Gradients -->
-    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#6366f1"/>
-    </linearGradient>
-    <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10b981"/>
-      <stop offset="100%" stop-color="#34d399"/>
-    </linearGradient>
-    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#a855f7"/>
-      <stop offset="100%" stop-color="#ec4899"/>
-    </linearGradient>
-    <linearGradient id="amberGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f59e0b"/>
-      <stop offset="100%" stop-color="#ef4444"/>
-    </linearGradient>
-
-    <!-- Drop Shadows & Filters -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
+    <!-- Filter Shadows -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
 
     <style>
       .title-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 700; fill: #f8fafc; }
       .sub-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; fill: #94a3b8; }
-      .card-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 13px; fill: #e2e8f0; }
-      .badge-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 9px; font-weight: 600; }
-      .pipe-label { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 9px; fill: #64748b; font-weight: 600; letter-spacing: 0.5px; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 13px; fill: #f1f5f9; }
+      .badge-text { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 10px; font-weight: 600; }
+      .pipe-label { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 9px; fill: #64748b; font-weight: 700; letter-spacing: 0.6px; }
 
       /* Animated Pipeline Connection Lines */
       .flow-path {
         stroke-dasharray: 6 6;
-        animation: flowAnimation 1.5s linear infinite;
+        animation: flowAnimation 1.4s linear infinite;
       }
       .return-path {
         stroke-dasharray: 4 4;
-        animation: flowReturn 1.5s linear infinite;
+        animation: flowReturn 1.4s linear infinite;
       }
 
       @keyframes flowAnimation {
@@ -70,321 +52,347 @@
         to { stroke-dashoffset: 16; }
       }
 
-      /* Glowing Pulse for Nodes */
       .pulse-green {
-        animation: pulseGreen 2.5s infinite;
+        animation: pulseGreen 2.2s infinite;
       }
       @keyframes pulseGreen {
         0%, 100% { filter: drop-shadow(0 0 2px #10b981); }
         50% { filter: drop-shadow(0 0 8px #34d399); }
       }
-
-      .pulse-blue {
-        animation: pulseBlue 2s infinite;
-      }
-      @keyframes pulseBlue {
-        0%, 100% { filter: drop-shadow(0 0 2px #38bdf8); }
-        50% { filter: drop-shadow(0 0 9px #60a5fa); }
-      }
-
-      .pulse-amber {
-        animation: pulseAmber 2.2s infinite;
-      }
-      @keyframes pulseAmber {
-        0%, 100% { filter: drop-shadow(0 0 2px #f59e0b); }
-        50% { filter: drop-shadow(0 0 8px #fbbf24); }
-      }
     </style>
   </defs>
 
   <!-- Background Canvas -->
-  <rect width="1200" height="480" rx="16" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="1240" height="520" rx="16" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Grid Tech Overlay Pattern -->
-  <g opacity="0.06">
-    <path d="M 0,60 L 1200,60 M 0,120 L 1200,120 M 0,180 L 1200,180 M 0,240 L 1200,240 M 0,300 L 1200,300 M 0,360 L 1200,360 M 0,420 L 1200,420" stroke="#38bdf8" stroke-width="1"/>
-    <path d="M 100,0 L 100,480 M 200,0 L 200,480 M 300,0 L 300,480 M 400,0 L 400,480 M 500,0 L 500,480 M 600,0 L 600,480 M 700,0 L 700,480 M 800,0 L 800,480 M 900,0 L 900,480 M 1000,0 L 1000,480 M 1100,0 L 1100,480" stroke="#38bdf8" stroke-width="1"/>
+  <!-- High-Tech Coordinate Grid Overlay -->
+  <g opacity="0.05">
+    <path d="M 0,65 L 1240,65 M 0,130 L 1240,130 M 0,195 L 1240,195 M 0,260 L 1240,260 M 0,325 L 1240,325 M 0,390 L 1240,390 M 0,455 L 1240,455" stroke="#38bdf8" stroke-width="1"/>
+    <path d="M 100,0 L 100,520 M 200,0 L 200,520 M 300,0 L 300,520 M 400,0 L 400,520 M 500,0 L 500,520 M 600,0 L 600,520 M 700,0 L 700,520 M 800,0 L 800,520 M 900,0 L 900,520 M 1000,0 L 1000,520 M 1100,0 L 1100,520 M 1200,0 L 1200,520" stroke="#38bdf8" stroke-width="1"/>
   </g>
 
-  <!-- Header Header / Status Banner -->
-  <g transform="translate(40, 30)">
-    <!-- Title -->
-    <text x="0" y="20" class="title-text" font-size="20" letter-spacing="-0.5px">WANDERLUST DEVSECOPS PIPELINE</text>
+  <!-- Header Section -->
+  <g transform="translate(45, 32)">
+    <text x="0" y="18" class="title-text" font-size="20" letter-spacing="-0.5px">WANDERLUST DEVSECOPS PIPELINE</text>
     <text x="0" y="38" class="sub-text">Continuous Inspection • Automated Security Gates • Zero-Trust Container Delivery</text>
 
     <!-- Live indicator badge -->
-    <g transform="translate(980, 5)">
-      <rect width="140" height="26" rx="13" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-      <circle cx="16" cy="13" r="4.5" fill="#10b981" class="pulse-green"/>
-      <text x="28" y="17" class="badge-text" fill="#34d399">LIVE AUTOMATION</text>
+    <g transform="translate(1000, 4)">
+      <rect width="150" height="28" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+      <circle cx="18" cy="14" r="4.5" fill="#10b981" class="pulse-green"/>
+      <text x="32" y="18" class="badge-text" fill="#34d399">LIVE AUTOMATION</text>
     </g>
   </g>
 
-  <!-- ==================== PIPELINE MOTION PATHS ==================== -->
+  <!-- ==================== CONNECTION PATHS & ANIMATION ==================== -->
 
   <!-- PATH 1: Developer to GitHub -->
-  <path id="pathDevToGit" d="M 125,170 L 195,170" fill="none" stroke="#3b82f6" stroke-width="2.5" class="flow-path"/>
-  <path d="M 125,170 L 195,170" fill="none" stroke="#1d4ed8" stroke-width="1"/>
+  <path id="pathDevToGit" d="M 135,170 L 210,170" fill="none" stroke="#3b82f6" stroke-width="2.5" class="flow-path"/>
 
   <!-- PATH 2: GitHub to Jenkins CI -->
-  <path id="pathGitToJenkins" d="M 315,170 L 385,170" fill="none" stroke="#38bdf8" stroke-width="2.5" class="flow-path"/>
+  <path id="pathGitToJenkins" d="M 335,170 L 410,170" fill="none" stroke="#38bdf8" stroke-width="2.5" class="flow-path"/>
 
   <!-- PATH 3: Jenkins CI to SonarQube (Upper Branch) -->
-  <path id="pathJenkinsToSonar" d="M 505,150 L 545,150 L 545,120 L 585,120" fill="none" stroke="#a855f7" stroke-width="2.5" class="flow-path"/>
+  <path id="pathJenkinsToSonar" d="M 545,150 L 585,150 L 585,118 L 615,118" fill="none" stroke="#a855f7" stroke-width="2.5" class="flow-path"/>
 
   <!-- PATH 3b: SonarQube Webhook return to Jenkins Quality Gate -->
-  <path id="pathSonarWebhook" d="M 585,135 L 535,135 L 535,160 L 505,160" fill="none" stroke="#c084fc" stroke-width="1.8" class="return-path"/>
+  <path id="pathSonarWebhook" d="M 615,134 L 575,134 L 575,165 L 545,165" fill="none" stroke="#c084fc" stroke-width="1.8" class="return-path"/>
 
   <!-- PATH 4: Jenkins CI to OWASP Dependency Check (Lower Branch) -->
-  <path id="pathJenkinsToOWASP" d="M 505,190 L 545,190 L 545,220 L 585,220" fill="none" stroke="#f59e0b" stroke-width="2.5" class="flow-path"/>
+  <path id="pathJenkinsToOWASP" d="M 545,185 L 585,185 L 585,228 L 615,228" fill="none" stroke="#f59e0b" stroke-width="2.5" class="flow-path"/>
 
-  <!-- PATH 5: Security Convergence from Sonar & OWASP to Trivy Scan -->
-  <path id="pathSecToTrivy" d="M 705,120 L 745,120 L 745,170 L 785,170" fill="none" stroke="#ec4899" stroke-width="2.5" class="flow-path"/>
-  <path d="M 705,220 L 745,220 L 745,170" fill="none" stroke="#f59e0b" stroke-width="2.5" class="flow-path"/>
+  <!-- PATH 5: SonarQube & OWASP to Trivy Scan (Convergence) -->
+  <path id="pathSonarToTrivy" d="M 770,118 L 800,118 L 800,170 L 825,170" fill="none" stroke="#ec4899" stroke-width="2.5" class="flow-path"/>
+  <path id="pathOWASPToTrivy" d="M 770,228 L 800,228 L 800,170" fill="none" stroke="#f59e0b" stroke-width="2.5" class="flow-path"/>
 
-  <!-- PATH 6: Trivy Scan to Docker Build & Push -->
-  <path id="pathTrivyToDocker" d="M 905,170 L 975,170" fill="none" stroke="#10b981" stroke-width="2.5" class="flow-path"/>
+  <!-- PATH 6: Trivy Scan to Docker Hub -->
+  <path id="pathTrivyToDocker" d="M 960,170 L 1030,170" fill="none" stroke="#10b981" stroke-width="2.5" class="flow-path"/>
 
-  <!-- PATH 7: Docker Registry downstream to AWS EC2 Deployment (Curve to Bottom Row) -->
-  <path id="pathDockerToEC2" d="M 1035,220 L 1035,320 L 1005,320" fill="none" stroke="#38bdf8" stroke-width="2.5" class="flow-path"/>
+  <!-- PATH 7: Docker Hub down to Frontend Container in EC2 -->
+  <path id="pathDockerToFrontend" d="M 1105,230 L 1105,315" fill="none" stroke="#38bdf8" stroke-width="2.5" class="flow-path"/>
 
-  <!-- PATH 8: Reverse Flow Inside EC2 Cluster (Containers Interconnect) -->
-  <path id="pathEC2Internal1" d="M 785,320 L 715,320" fill="none" stroke="#34d399" stroke-width="2" class="flow-path"/>
-  <path id="pathEC2Internal2" d="M 495,320 L 425,320" fill="none" stroke="#38bdf8" stroke-width="2" class="flow-path"/>
-  <path id="pathEC2Internal3" d="M 215,320 L 175,320" fill="none" stroke="#f59e0b" stroke-width="2" class="flow-path"/>
+  <!-- PATH 8: Containers Internal Microservice Connections -->
+  <path id="pathFrontToBack" d="M 945,380 L 895,380" fill="none" stroke="#6366f1" stroke-width="2" class="flow-path"/>
+  <path id="pathBackToRedis" d="M 645,380 L 605,380" fill="none" stroke="#ef4444" stroke-width="2" class="flow-path"/>
+  <path id="pathBackToMongo" d="M 355,380 L 315,380" fill="none" stroke="#10b981" stroke-width="2" class="flow-path"/>
 
-  <!-- ==================== ANIMATED TRAVELING PARTICLES (MOVING DOTS) ==================== -->
+  <!-- ==================== ANIMATED MOVING DOTS ==================== -->
 
-  <!-- Particle 1: Dev -> GitHub (Blue) -->
+  <!-- Particle 1: Dev -> GitHub -->
   <circle r="4.5" fill="#60a5fa" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.2s">
+    <animateMotion repeatCount="indefinite" dur="1.1s">
       <mpath href="#pathDevToGit"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 2: GitHub -> Jenkins (Cyan) -->
+  <!-- Particle 2: GitHub -> Jenkins -->
   <circle r="4.5" fill="#38bdf8" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.2s">
+    <animateMotion repeatCount="indefinite" dur="1.1s">
       <mpath href="#pathGitToJenkins"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 3: Jenkins -> SonarQube (Purple) -->
+  <!-- Particle 3: Jenkins -> SonarQube -->
   <circle r="4.5" fill="#c084fc" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.4s">
+    <animateMotion repeatCount="indefinite" dur="1.3s">
       <mpath href="#pathJenkinsToSonar"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 3b: Sonar Webhook return (Pink pulse) -->
+  <!-- Particle 3b: Sonar Webhook Gate Return -->
   <circle r="3.5" fill="#f472b6" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.4s">
+    <animateMotion repeatCount="indefinite" dur="1.3s">
       <mpath href="#pathSonarWebhook"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 4: Jenkins -> OWASP (Amber) -->
+  <!-- Particle 4: Jenkins -> OWASP -->
   <circle r="4.5" fill="#fbbf24" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.4s">
+    <animateMotion repeatCount="indefinite" dur="1.3s">
       <mpath href="#pathJenkinsToOWASP"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 5: Sonar/OWASP -> Trivy (Rose) -->
+  <!-- Particle 5: Security Convergence -> Trivy -->
   <circle r="4.5" fill="#f43f5e" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.3s">
-      <mpath href="#pathSecToTrivy"/>
+    <animateMotion repeatCount="indefinite" dur="1.2s">
+      <mpath href="#pathSonarToTrivy"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 6: Trivy -> Docker Hub (Emerald) -->
+  <!-- Particle 6: Trivy -> Docker Hub -->
   <circle r="5" fill="#34d399" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.2s">
+    <animateMotion repeatCount="indefinite" dur="1.1s">
       <mpath href="#pathTrivyToDocker"/>
     </animateMotion>
   </circle>
 
-  <!-- Particle 7: Docker -> AWS EC2 (Sky Blue) -->
+  <!-- Particle 7: Docker Hub -> AWS EC2 Frontend -->
   <circle r="5" fill="#38bdf8" filter="url(#glow)">
-    <animateMotion repeatCount="indefinite" dur="1.6s">
-      <mpath href="#pathDockerToEC2"/>
+    <animateMotion repeatCount="indefinite" dur="1.2s">
+      <mpath href="#pathDockerToFrontend"/>
     </animateMotion>
   </circle>
 
-  <!-- ==================== STAGE 1: DEVELOPER ==================== -->
-  <g transform="translate(35, 120)" filter="url(#shadow)">
-    <rect width="90" height="100" rx="10" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.5"/>
-    <rect width="90" height="4" rx="2" fill="#3b82f6"/>
-    <!-- Dev Icon (Terminal/Laptop) -->
-    <circle cx="45" cy="38" r="18" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2"/>
-    <path d="M 37 34 L 43 38 L 37 42 M 45 42 L 53 42" stroke="#60a5fa" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-    <text x="45" y="70" class="card-title" text-anchor="middle">Developer</text>
-    <text x="45" y="86" class="sub-text" text-anchor="middle" font-size="10">git push</text>
-    <text x="45" y="99" class="badge-text" fill="#38bdf8" text-anchor="middle">FEATURE / FIX</text>
+  <!-- Particle 8: Microservice Interconnects -->
+  <circle r="4" fill="#818cf8" filter="url(#glow)">
+    <animateMotion repeatCount="indefinite" dur="1s">
+      <mpath href="#pathFrontToBack"/>
+    </animateMotion>
+  </circle>
+  <circle r="4" fill="#f87171" filter="url(#glow)">
+    <animateMotion repeatCount="indefinite" dur="1s">
+      <mpath href="#pathBackToRedis"/>
+    </animateMotion>
+  </circle>
+  <circle r="4" fill="#34d399" filter="url(#glow)">
+    <animateMotion repeatCount="indefinite" dur="1s">
+      <mpath href="#pathBackToMongo"/>
+    </animateMotion>
+  </circle>
+
+
+  <!-- ==================== ROW 1: PIPELINE STAGES ==================== -->
+
+  <!-- 1. DEVELOPER CARD -->
+  <g transform="translate(40, 115)" filter="url(#shadow)">
+    <rect width="95" height="110" rx="10" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.5"/>
+    <rect width="95" height="4" rx="2" fill="#3b82f6"/>
+    <!-- Terminal Icon -->
+    <circle cx="47" cy="38" r="16" fill="#1e293b" stroke="#3b82f6" stroke-width="1.2"/>
+    <path d="M 40 34 L 46 38 L 40 42 M 48 42 L 55 42" stroke="#60a5fa" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <text x="47" y="68" class="card-title" text-anchor="middle">Developer</text>
+    <text x="47" y="83" class="sub-text" text-anchor="middle">git push</text>
+    <rect x="8" y="89" width="79" height="16" rx="4" fill="#0f172a"/>
+    <text x="47" y="101" class="badge-text" fill="#38bdf8" text-anchor="middle">FEATURE/FIX</text>
   </g>
 
-  <!-- Connector Label 1 -->
-  <text x="160" y="158" class="pipe-label" text-anchor="middle">PUSH</text>
+  <!-- Pipe Label: Push -->
+  <text x="172" y="160" class="pipe-label" text-anchor="middle">PUSH</text>
 
-  <!-- ==================== STAGE 2: GITHUB REPO ==================== -->
-  <g transform="translate(195, 120)" filter="url(#shadow)">
-    <rect width="120" height="100" rx="10" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.5"/>
-    <rect width="120" height="4" rx="2" fill="#6366f1"/>
-    <!-- GitHub Octocat Symbol -->
-    <circle cx="60" cy="38" r="18" fill="#1e293b" stroke="#6366f1" stroke-width="1.2"/>
-    <path d="M 60 26 C 53.4 26 48 31.4 48 38 C 48 43.3 51.4 47.8 56.2 49.4 C 56.8 49.5 57 49.1 57 48.8 L 57 46.7 C 53.7 47.4 53 45.1 53 45.1 C 52.5 43.7 51.7 43.3 51.7 43.3 C 50.6 42.6 51.8 42.6 51.8 42.6 C 53 42.7 53.6 43.9 53.6 43.9 C 54.7 45.8 56.5 45.2 57.2 44.9 C 57.3 44.1 57.6 43.5 58 43.2 C 55.3 42.9 52.5 41.8 52.5 37.2 C 52.5 35.9 53 34.8 53.8 33.9 C 53.7 33.6 53.3 32.3 53.9 30.7 C 53.9 30.7 55 30.4 57.2 32 C 58.1 31.7 59.1 31.6 60.1 31.6 C 61.1 31.6 62.1 31.7 63 32 C 65.2 30.4 66.3 30.7 66.3 30.7 C 66.9 32.3 66.5 33.6 66.4 33.9 C 67.2 34.8 67.7 35.9 67.7 37.2 C 67.7 41.8 64.9 42.8 62.2 43.1 C 62.7 43.5 63.1 44.3 63.1 45.5 L 63.1 48.8 C 63.1 49.1 63.3 49.5 63.9 49.4 C 68.7 47.7 72.1 43.3 72.1 38 C 72.1 31.4 66.7 26 60 26 Z" fill="#c7d2fe"/>
-    <text x="60" y="70" class="card-title" text-anchor="middle">GitHub</text>
-    <text x="60" y="86" class="sub-text" text-anchor="middle">main branch</text>
-    <text x="60" y="100" class="badge-text" fill="#818cf8" text-anchor="middle">WEBHOOK TRIGGER</text>
+  <!-- 2. GITHUB CARD -->
+  <g transform="translate(210, 115)" filter="url(#shadow)">
+    <rect width="125" height="110" rx="10" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.5"/>
+    <rect width="125" height="4" rx="2" fill="#6366f1"/>
+    <!-- GitHub Octocat Icon -->
+    <circle cx="62" cy="38" r="16" fill="#1e293b" stroke="#6366f1" stroke-width="1.2"/>
+    <path d="M 62 27 C 56.5 27 52 31.5 52 37 C 52 41.4 54.8 45.1 58.8 46.5 C 59.3 46.6 59.5 46.3 59.5 46 L 59.5 44.3 C 56.8 44.9 56.2 43 56.2 43 C 55.8 41.8 55.1 41.5 55.1 41.5 C 54.2 40.9 55.2 40.9 55.2 40.9 C 56.2 41 56.7 42 56.7 42 C 57.6 43.6 59.1 43.1 59.7 42.8 C 59.8 42.1 60 41.6 60.3 41.4 C 58.1 41.1 55.8 40.2 55.8 36.4 C 55.8 35.3 56.2 34.4 56.9 33.7 C 56.8 33.4 56.5 32.3 57 31 C 57 31 57.9 30.7 59.7 32 C 60.5 31.8 61.3 31.7 62.1 31.7 C 62.9 31.7 63.7 31.8 64.5 32 C 66.3 30.7 67.2 31 67.2 31 C 67.7 32.3 67.4 33.4 67.3 33.7 C 68 34.4 68.4 35.3 68.4 36.4 C 68.4 40.2 66.1 41.1 63.9 41.3 C 64.3 41.6 64.6 42.3 64.6 43.3 L 64.6 46 C 64.6 46.3 64.8 46.6 65.3 46.5 C 69.3 45.1 72.1 41.4 72.1 37 C 72.1 31.5 67.6 27 62 27 Z" fill="#c7d2fe"/>
+    <text x="62" y="68" class="card-title" text-anchor="middle">GitHub</text>
+    <text x="62" y="83" class="sub-text" text-anchor="middle">main branch</text>
+    <rect x="12" y="89" width="101" height="16" rx="4" fill="#0f172a"/>
+    <text x="62" y="101" class="badge-text" fill="#818cf8" text-anchor="middle">WEBHOOK TRIGGER</text>
   </g>
 
-  <!-- Connector Label 2 -->
-  <text x="350" y="158" class="pipe-label" text-anchor="middle">POLL / HOOK</text>
+  <!-- Pipe Label: Trigger -->
+  <text x="372" y="160" class="pipe-label" text-anchor="middle">TRIGGER</text>
 
-  <!-- ==================== STAGE 3: JENKINS CI ORCHESTRATOR ==================== -->
-  <g transform="translate(385, 105)" filter="url(#shadow)">
-    <rect width="120" height="130" rx="10" fill="url(#cardActiveGrad)" stroke="#38bdf8" stroke-width="1.8"/>
-    <rect width="120" height="4" rx="2" fill="#38bdf8"/>
-    <!-- Jenkins Avatar representation -->
-    <circle cx="60" cy="38" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
-    <circle cx="60" cy="32" r="7" fill="#f87171"/>
-    <path d="M 52 46 C 52 40 68 40 68 46 Z" fill="#38bdf8"/>
-    <text x="60" y="72" class="card-title" text-anchor="middle" font-size="14">Jenkins CI</text>
-    <text x="60" y="88" class="sub-text" text-anchor="middle">Pipeline Master</text>
-    <rect x="15" y="97" width="90" height="18" rx="4" fill="#0f172a"/>
-    <text x="60" y="110" class="badge-text" fill="#38bdf8" text-anchor="middle">STAGE VIEW RUNNER</text>
+  <!-- 3. JENKINS CI ORCHESTRATOR -->
+  <g transform="translate(410, 100)" filter="url(#shadow)">
+    <rect width="135" height="140" rx="10" fill="url(#cardActiveGrad)" stroke="#38bdf8" stroke-width="1.8"/>
+    <rect width="135" height="4" rx="2" fill="#38bdf8"/>
+    <!-- Jenkins representation -->
+    <circle cx="67" cy="40" r="18" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2"/>
+    <circle cx="67" cy="34" r="7" fill="#f87171"/>
+    <path d="M 59 48 C 59 42 75 42 75 48 Z" fill="#38bdf8"/>
+    <text x="67" y="76" class="card-title" text-anchor="middle" font-size="14">Jenkins CI</text>
+    <text x="67" y="93" class="sub-text" text-anchor="middle">Pipeline Controller</text>
+    <rect x="14" y="105" width="107" height="20" rx="4" fill="#0f172a"/>
+    <text x="67" y="119" class="badge-text" fill="#38bdf8" text-anchor="middle">STAGE VIEW RUNNER</text>
   </g>
 
-  <!-- ==================== STAGE 4A: SONARQUBE (SAST) ==================== -->
-  <g transform="translate(585, 75)" filter="url(#shadow)">
-    <rect width="120" height="85" rx="8" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="1.5"/>
-    <rect width="120" height="3" rx="1.5" fill="#a855f7"/>
-    <circle cx="28" cy="28" r="10" fill="#2e1065"/>
-    <!-- Sonar Waveform Icon -->
-    <path d="M 24 33 C 24 25 32 25 32 33" stroke="#c084fc" stroke-width="2" fill="none"/>
-    <path d="M 21 34 C 21 21 35 21 35 34" stroke="#a855f7" stroke-width="1.5" fill="none"/>
-    <text x="72" y="28" class="card-title" text-anchor="middle" font-size="12">SonarQube</text>
-    <text x="72" y="42" class="sub-text" text-anchor="middle" font-size="10">Code Quality &amp; SAST</text>
-    <rect x="12" y="55" width="96" height="18" rx="3" fill="#1e1b4b"/>
-    <text x="60" y="68" class="badge-text" fill="#d8b4fe" text-anchor="middle">QUALITY GATE: PASSED</text>
+  <!-- Webhook Gate callback label -->
+  <text x="592" y="146" class="pipe-label" text-anchor="middle" fill="#c084fc">GATE</text>
+
+  <!-- 4A. SONARQUBE (SAST) -->
+  <g transform="translate(615, 75)" filter="url(#shadow)">
+    <rect width="155" height="86" rx="8" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="1.5"/>
+    <rect width="155" height="3" rx="1.5" fill="#a855f7"/>
+    <!-- Icon -->
+    <circle cx="28" cy="27" r="11" fill="#2e1065"/>
+    <path d="M 23 32 C 23 24 33 24 33 32" stroke="#c084fc" stroke-width="2" fill="none"/>
+    <path d="M 20 33 C 20 20 36 20 36 33" stroke="#a855f7" stroke-width="1.5" fill="none"/>
+    <!-- Title and Subtitle with clean left alignment -->
+    <text x="48" y="25" class="card-title" font-size="13">SonarQube</text>
+    <text x="48" y="39" class="sub-text" font-size="10">Code Quality &amp; SAST</text>
+    <!-- Badge centered across card -->
+    <rect x="12" y="54" width="131" height="22" rx="4" fill="#1e1b4b"/>
+    <text x="77" y="69" class="badge-text" fill="#d8b4fe" text-anchor="middle">QUALITY GATE: PASSED</text>
   </g>
 
-  <!-- Webhook callback label -->
-  <text x="548" y="146" class="pipe-label" text-anchor="middle" fill="#c084fc">GATE</text>
-
-  <!-- ==================== STAGE 4B: OWASP DEPENDENCY-CHECK (SCA) ==================== -->
-  <g transform="translate(585, 180)" filter="url(#shadow)">
-    <rect width="120" height="85" rx="8" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.5"/>
-    <rect width="120" height="3" rx="1.5" fill="#f59e0b"/>
+  <!-- 4B. OWASP DEPENDENCY-CHECK (SCA) -->
+  <g transform="translate(615, 185)" filter="url(#shadow)">
+    <rect width="155" height="86" rx="8" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="155" height="3" rx="1.5" fill="#f59e0b"/>
     <!-- Shield Icon -->
-    <path d="M 28 19 L 36 23 L 36 31 C 36 36 28 39 28 39 C 28 39 20 36 20 31 L 20 23 Z" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
-    <text x="74" y="27" class="card-title" text-anchor="middle" font-size="12">OWASP DC</text>
-    <text x="74" y="41" class="sub-text" text-anchor="middle" font-size="10">Software Comp. (SCA)</text>
-    <rect x="12" y="55" width="96" height="18" rx="3" fill="#451a03"/>
-    <text x="60" y="68" class="badge-text" fill="#fbbf24" text-anchor="middle">CVE / VULN REPORT</text>
+    <path d="M 28 20 L 37 24 L 37 32 C 37 38 28 41 28 41 C 28 41 19 38 19 32 L 19 24 Z" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+    <!-- Title and Subtitle with clean left alignment -->
+    <text x="48" y="25" class="card-title" font-size="13">OWASP DC</text>
+    <text x="48" y="39" class="sub-text" font-size="10">Software Comp. (SCA)</text>
+    <!-- Badge centered across card -->
+    <rect x="12" y="54" width="131" height="22" rx="4" fill="#451a03"/>
+    <text x="77" y="69" class="badge-text" fill="#fbbf24" text-anchor="middle">0 VULNERABILITIES</text>
   </g>
 
-  <!-- ==================== STAGE 5: TRIVY SCANNER ==================== -->
-  <g transform="translate(785, 120)" filter="url(#shadow)">
-    <rect width="120" height="100" rx="10" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.5"/>
-    <rect width="120" height="4" rx="2" fill="#ec4899"/>
+  <!-- 5. TRIVY SCANNER -->
+  <g transform="translate(825, 115)" filter="url(#shadow)">
+    <rect width="135" height="110" rx="10" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.5"/>
+    <rect width="135" height="4" rx="2" fill="#ec4899"/>
     <!-- Trivy Aqua Icon -->
-    <circle cx="60" cy="38" r="18" fill="#1e293b" stroke="#ec4899" stroke-width="1.2"/>
-    <path d="M 52 40 L 58 46 L 68 32" stroke="#f472b6" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-    <text x="60" y="70" class="card-title" text-anchor="middle">Trivy Scan</text>
-    <text x="60" y="86" class="sub-text" text-anchor="middle">Filesystem &amp; RootFS</text>
-    <text x="60" y="100" class="badge-text" fill="#f472b6" text-anchor="middle">0 CRITICAL / HIGH</text>
+    <circle cx="67" cy="38" r="16" fill="#1e293b" stroke="#ec4899" stroke-width="1.2"/>
+    <path d="M 59 40 L 65 46 L 75 32" stroke="#f472b6" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <text x="67" y="68" class="card-title" text-anchor="middle">Trivy Scan</text>
+    <text x="67" y="83" class="sub-text" text-anchor="middle">Filesystem &amp; RootFS</text>
+    <rect x="10" y="89" width="115" height="16" rx="4" fill="#0f172a"/>
+    <text x="67" y="101" class="badge-text" fill="#f472b6" text-anchor="middle">0 CRITICAL / HIGH</text>
   </g>
 
-  <!-- Connector Label -->
-  <text x="940" y="158" class="pipe-label" text-anchor="middle">SECURED</text>
+  <!-- Pipe Label: Secured -->
+  <text x="995" y="160" class="pipe-label" text-anchor="middle">SECURED</text>
 
-  <!-- ==================== STAGE 6: DOCKER BUILD & REGISTRY ==================== -->
-  <g transform="translate(975, 120)" filter="url(#shadow)">
-    <rect width="120" height="100" rx="10" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5"/>
-    <rect width="120" height="4" rx="2" fill="#10b981"/>
-    <!-- Docker Whale Icon representation -->
-    <circle cx="60" cy="38" r="18" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
-    <path d="M 50 38 H 70 M 52 34 H 60 M 62 34 H 66 M 54 30 H 58" stroke="#34d399" stroke-width="1.8"/>
-    <text x="60" y="70" class="card-title" text-anchor="middle">Docker Hub</text>
-    <text x="60" y="86" class="sub-text" text-anchor="middle">Multi-Stage Images</text>
-    <text x="60" y="100" class="badge-text" fill="#34d399" text-anchor="middle">wanderlust:latest</text>
+  <!-- 6. DOCKER HUB REGISTRY -->
+  <g transform="translate(1030, 115)" filter="url(#shadow)">
+    <rect width="150" height="110" rx="10" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5"/>
+    <rect width="150" height="4" rx="2" fill="#10b981"/>
+    <!-- Docker Whale Icon -->
+    <circle cx="75" cy="38" r="16" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+    <path d="M 65 38 H 85 M 67 34 H 75 M 77 34 H 81 M 69 30 H 73" stroke="#34d399" stroke-width="1.8"/>
+    <text x="75" y="68" class="card-title" text-anchor="middle">Docker Hub</text>
+    <text x="75" y="83" class="sub-text" text-anchor="middle">Multi-Stage Images</text>
+    <rect x="12" y="89" width="126" height="16" rx="4" fill="#0f172a"/>
+    <text x="75" y="101" class="badge-text" fill="#34d399" text-anchor="middle">wanderlust:latest</text>
   </g>
 
-  <!-- Deploy Stream Downward Label -->
-  <text x="1055" y="275" class="pipe-label" text-anchor="start" fill="#38bdf8">CD DEPLOY</text>
+  <!-- CD Deploy Flow Downward Label -->
+  <text x="1115" y="275" class="pipe-label" text-anchor="start" fill="#38bdf8">CD DEPLOY</text>
 
-  <!-- ==================== RUNTIME ENVIRONMENT: AWS EC2 HOST ==================== -->
-  <g transform="translate(35, 290)">
+
+  <!-- ==================== ROW 2: RUNTIME HOST (AWS EC2) ==================== -->
+
+  <g transform="translate(40, 290)">
     <!-- Main AWS Instance Boundary -->
-    <rect width="970" height="150" rx="14" fill="#0b1329" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8 6"/>
-    
-    <!-- AWS Badge Header -->
-    <g transform="translate(20, -14)">
-      <rect width="250" height="28" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
-      <text x="15" y="19" class="badge-text" fill="#38bdf8" font-size="11">AWS EC2 (Ubuntu 22.04 LTS)</text>
-      <text x="195" y="19" class="badge-text" fill="#10b981">DOCKER COMPOSE</text>
+    <rect width="1140" height="175" rx="14" fill="#0b1329" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="8 6"/>
+
+    <!-- AWS EC2 Header Box with ample width -->
+    <g transform="translate(25, -14)">
+      <rect width="320" height="28" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+      <text x="15" y="18" class="badge-text" fill="#38bdf8" font-size="11">AWS EC2 (Ubuntu 22.04 LTS)</text>
+      <rect x="200" y="5" width="105" height="18" rx="4" fill="#064e3b"/>
+      <text x="252" y="18" class="badge-text" fill="#34d399" text-anchor="middle">DOCKER COMPOSE</text>
     </g>
 
-    <!-- CONTAINER 1: React Frontend -->
-    <g transform="translate(750, 30)" filter="url(#shadow)">
-      <rect width="195" height="95" rx="8" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.2"/>
-      <rect width="195" height="3" rx="1.5" fill="#0ea5e9"/>
-      <circle cx="28" cy="28" r="10" fill="#082f49"/>
-      <text x="28" y="32" class="badge-text" fill="#38bdf8" text-anchor="middle">UI</text>
-      <text x="110" y="26" class="card-title" font-size="13">Frontend (Vite / React)</text>
-      <text x="110" y="42" class="sub-text">Port: 5173 • SPA Client</text>
-      <rect x="15" y="62" width="165" height="20" rx="4" fill="#0f172a"/>
-      <text x="97" y="76" class="badge-text" fill="#38bdf8" text-anchor="middle">http://ec2-ip:5173</text>
+    <!-- CONTAINER 1: MongoDB Database -->
+    <g transform="translate(25, 30)" filter="url(#shadow)">
+      <rect width="250" height="120" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
+      <rect width="250" height="3" rx="1.5" fill="#10b981"/>
+      <!-- Icon Pill -->
+      <circle cx="26" cy="30" r="12" fill="#064e3b"/>
+      <text x="26" y="34" class="badge-text" fill="#34d399" text-anchor="middle">DB</text>
+      <!-- Title & Subtitle with plenty of room -->
+      <text x="48" y="27" class="card-title" font-size="13">MongoDB 8.0</text>
+      <text x="48" y="44" class="sub-text">Port: 27017 • Persistent Volume</text>
+      <!-- Bottom Badge -->
+      <rect x="15" y="68" width="220" height="34" rx="4" fill="#0f172a"/>
+      <text x="125" y="89" class="badge-text" fill="#34d399" text-anchor="middle">Collections: Posts &amp; Users</text>
     </g>
 
-    <!-- Connector Container: Front to Back -->
-    <text x="732" y="78" class="pipe-label" text-anchor="middle">API</text>
+    <!-- Label: Data -->
+    <text x="300" y="94" class="pipe-label" text-anchor="middle">DATA</text>
 
-    <!-- CONTAINER 2: Express Backend -->
-    <g transform="translate(495, 30)" filter="url(#shadow)">
-      <rect width="220" height="95" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.2"/>
-      <rect width="220" height="3" rx="1.5" fill="#6366f1"/>
-      <circle cx="28" cy="28" r="10" fill="#1e1b4b"/>
-      <text x="28" y="32" class="badge-text" fill="#818cf8" text-anchor="middle">API</text>
-      <text x="120" y="26" class="card-title" font-size="13">Backend (Node/Express)</text>
-      <text x="120" y="42" class="sub-text">Port: 31100:8080 • JWT Auth</text>
-      <rect x="15" y="62" width="190" height="20" rx="4" fill="#0f172a"/>
-      <text x="110" y="76" class="badge-text" fill="#818cf8" text-anchor="middle">RESTful Microservices</text>
+    <!-- CONTAINER 2: Redis In-Memory Cache -->
+    <g transform="translate(315, 30)" filter="url(#shadow)">
+      <rect width="250" height="120" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <rect width="250" height="3" rx="1.5" fill="#ef4444"/>
+      <!-- Icon Pill -->
+      <circle cx="26" cy="30" r="12" fill="#450a0a"/>
+      <text x="26" y="34" class="badge-text" fill="#f87171" text-anchor="middle">RAM</text>
+      <!-- Title & Subtitle -->
+      <text x="48" y="27" class="card-title" font-size="13">Redis In-Memory</text>
+      <text x="48" y="44" class="sub-text">Port: 6379 • Sub-ms Cache</text>
+      <!-- Bottom Badge -->
+      <rect x="15" y="68" width="220" height="34" rx="4" fill="#0f172a"/>
+      <text x="125" y="89" class="badge-text" fill="#f87171" text-anchor="middle">High-Throughput Read Cache</text>
     </g>
 
-    <!-- Connector: Back to Cache/DB -->
-    <text x="460" y="78" class="pipe-label" text-anchor="middle">DATA</text>
+    <!-- Label: Cache -->
+    <text x="590" y="94" class="pipe-label" text-anchor="middle">CACHE</text>
 
-    <!-- CONTAINER 3: Redis Cache -->
-    <g transform="translate(230, 30)" filter="url(#shadow)">
-      <rect width="195" height="95" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
-      <rect width="195" height="3" rx="1.5" fill="#ef4444"/>
-      <circle cx="28" cy="28" r="10" fill="#450a0a"/>
-      <text x="28" y="32" class="badge-text" fill="#f87171" text-anchor="middle">RAM</text>
-      <text x="110" y="26" class="card-title" font-size="13">Redis In-Memory</text>
-      <text x="110" y="42" class="sub-text">Port: 6379 • Cache Layer</text>
-      <rect x="15" y="62" width="165" height="20" rx="4" fill="#0f172a"/>
-      <text x="97" y="76" class="badge-text" fill="#f87171" text-anchor="middle">High-Throughput Read</text>
+    <!-- CONTAINER 3: Express Backend -->
+    <g transform="translate(605, 30)" filter="url(#shadow)">
+      <rect width="250" height="120" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.2"/>
+      <rect width="250" height="3" rx="1.5" fill="#6366f1"/>
+      <!-- Icon Pill -->
+      <circle cx="26" cy="30" r="12" fill="#1e1b4b"/>
+      <text x="26" y="34" class="badge-text" fill="#818cf8" text-anchor="middle">API</text>
+      <!-- Title & Subtitle -->
+      <text x="48" y="27" class="card-title" font-size="13">Express Backend API</text>
+      <text x="48" y="44" class="sub-text">Port: 31100:8080 • JWT &amp; REST</text>
+      <!-- Bottom Badge -->
+      <rect x="15" y="68" width="220" height="34" rx="4" fill="#0f172a"/>
+      <text x="125" y="89" class="badge-text" fill="#818cf8" text-anchor="middle">Microservices Controller</text>
     </g>
 
-    <!-- CONTAINER 4: MongoDB Database -->
-    <g transform="translate(15, 30)" filter="url(#shadow)">
-      <rect width="195" height="95" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.2"/>
-      <rect width="195" height="3" rx="1.5" fill="#10b981"/>
-      <circle cx="28" cy="28" r="10" fill="#064e3b"/>
-      <text x="28" y="32" class="badge-text" fill="#34d399" text-anchor="middle">DB</text>
-      <text x="110" y="26" class="card-title" font-size="13">MongoDB 8.0</text>
-      <text x="110" y="42" class="sub-text">Port: 27017 • Persistent</text>
-      <rect x="15" y="62" width="165" height="20" rx="4" fill="#0f172a"/>
-      <text x="97" y="76" class="badge-text" fill="#34d399" text-anchor="middle">Posts &amp; User Storage</text>
+    <!-- Label: REST API -->
+    <text x="880" y="94" class="pipe-label" text-anchor="middle">REST</text>
+
+    <!-- CONTAINER 4: React Frontend UI -->
+    <g transform="translate(895, 30)" filter="url(#shadow)">
+      <rect width="220" height="120" rx="8" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.2"/>
+      <rect width="220" height="3" rx="1.5" fill="#0ea5e9"/>
+      <!-- Icon Pill -->
+      <circle cx="26" cy="30" r="12" fill="#082f49"/>
+      <text x="26" y="34" class="badge-text" fill="#38bdf8" text-anchor="middle">UI</text>
+      <!-- Title & Subtitle -->
+      <text x="48" y="27" class="card-title" font-size="13">React Frontend (Vite)</text>
+      <text x="48" y="44" class="sub-text">Port: 5173 • SPA Client</text>
+      <!-- Bottom Badge -->
+      <rect x="15" y="68" width="190" height="34" rx="4" fill="#0f172a"/>
+      <text x="110" y="89" class="badge-text" fill="#38bdf8" text-anchor="middle">http://ec2-ip:5173</text>
     </g>
   </g>
 
-  <!-- Interactive / Status Footer Tag -->
-  <g transform="translate(40, 458)">
+  <!-- Interactive Footer -->
+  <g transform="translate(45, 498)">
     <text x="0" y="10" class="pipe-label" fill="#475569">END-TO-END AUTOMATION • SECURED BY SHIFT-LEFT DEVSECOPS</text>
-    <text x="1120" y="10" class="pipe-label" text-anchor="end" fill="#475569">WANDERLUST ARCHITECTURE v2.0</text>
+    <text x="1150" y="10" class="pipe-label" text-anchor="end" fill="#475569">WANDERLUST ARCHITECTURE v2.0</text>
   </g>
 </svg>
-
